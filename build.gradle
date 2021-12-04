@@ -3,8 +3,8 @@ plugins {
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version + '+' + project.mod_minecraft_version + getExtraBuildMetadata()
@@ -44,8 +44,8 @@ dependencies {
 		exclude group: 'net.fabricmc.fabric-api'
 	}
 
-	modCompileOnly 'maven.modrinth:sodium:mc1.17.1-0.3.2'
-	modCompileOnly('io.vram:canvas-fabric-mc117-1.17:1.0.2124') {
+	modCompileOnly 'maven.modrinth:sodium:mc1.18-0.4.0-alpha5'
+	modCompileOnly('io.vram:canvas-fabric-mc118-1.18:1.0.2201') {
 		exclude group: '*', module: '*'
 	}
 }
@@ -74,7 +74,7 @@ tasks.withType(JavaCompile).configureEach {
 	it.options.encoding 'UTF-8'
 
 	// Minecraft 1.17 (21w19a) upwards uses Java 16.
-	it.options.release.set(16)
+	it.options.release.set(17)
 }
 
 java {
